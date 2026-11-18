@@ -1,3 +1,6 @@
+
+
+
 type CardsProps = {
     label1?: string;
     title1?: string;
@@ -19,22 +22,22 @@ function StatsCards({label1, title1, label11, label2, title2, label22, label3, t
   return (
     <div className="max-w-7xl mx-auto px-6 py-8">
         <div className="flex flex-3 justify-between">
-            <div className=" bg-white px-8 shadow-xl border border-slate-200 text-2xl px-27 py-10 rounded-3xl items-center justify-center flex flex-col gap-2 transition-all duration-300 hover:scale-107 hover:shadow-xl">
-                <label htmlFor="" className="text-3xl">{label1}</label>
-                <h2 className="font-bold ">{title1}</h2>
-                <label htmlFor="" className="revenue">{label11} Rwf</label>
+            <div className="bg-green-50 border-t-4 border-green-500 shadow-lg border border-green-100  text-xl px-23 py-7 rounded-3xl items-center justify-center flex flex-col gap-2 transition-all duration-300 hover:-translate-y-2 hover:shadow-xl">
+                <img className=" w-24 h-24 object-contain" src={label1} alt="" />
+                <h2 className="font-bold text-slate-800 text-2xl">{title1}</h2>
+                <label className="text-2xl font-bold text-green-600">{label11} $ </label>
             </div>
 
-            <div className=" bg-white px-8 shadow-xl border border-slate-200 text-2xl px-27 py-10 rounded-3xl items-center justify-center flex flex-col gap-2 transition-all duration-300 hover:scale-107 hover:shadow-xl">
-                <label htmlFor="" className="text-3xl">{label2}</label>
-                <h2 className="font-bold ">{title2}</h2>
-                <label htmlFor="" className="pending">{label22}</label>
+            <div className="bg-amber-50 border-t-4 border-amber-500 shadow-lg border border-amber-100  text-xl px-23 py-7 rounded-3xl items-center justify-center flex flex-col gap-2 transition-all duration-300 hover:-translate-y-2 hover:shadow-xl">
+                <img className="w-24 h-24 object-contain" src={label2} alt="" />
+                <h2 className="font-bold text-slate-800 text-2xl">{title2}</h2>
+                <label className="text-2xl font-bold text-amber-600"> {label22} </label>
             </div>
 
-            <div className=" bg-white px-8 shadow-xl border border-slate-200 text-2xl px-27 py-10 rounded-3xl items-center justify-center flex flex-col gap-2 transition-all duration-300 hover:scale-105 hover:shadow-xl">
-                <label htmlFor="" className="text-3xl">{label3}</label>
-                <h2 className="font-bold ">{title3}</h2>
-                <label htmlFor="" className="average">{label33} %</label>
+            <div className=" bg-blue-50 border-t-4 border-blue-500 shadow-lg border border-blue-100 text-xl px-23 py-7 rounded-3xl items-center justify-center flex flex-col gap-2 transition-all duration-300 hover:-translate-y-2 hover:shadow-xl">
+                <img className="w-24 h-24 object-contain" src={label3} alt="" />
+                <h2 className="font-bold text-slate-800 text-2xl">{title3}</h2>
+                <label className="text-2xl font-bold text-blue-600"> {label33} $ </label>
             </div>
        </div>
     </div>
