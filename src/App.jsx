@@ -4,14 +4,14 @@ import { useAuth } from "./hooks/useAuth";
 import LoginView from "./views/LoginView";
 
 function App() {
-  const { isLoggedIn, login } = useAuth();
+  const { isLoggedIn, login, logout } = useAuth();
 
 
   if (!isLoggedIn) {
     return <LoginView onLogin={login} />;
   }
 
-  return <DashboardView />;
+  return <DashboardView onLogout={logout}/>;
 }
 
 export default App;
