@@ -16,13 +16,14 @@ type OrderControlsProps = {
   op3?: string;
   op4?: string;
   op5?: string;
+  span1?: string;
 }
 
-function OrderControls({h1, p1, label1, h2, p2, th1, th2, th3, th4, th5, td1, p3, op1, op2, op3, op4, op5}: OrderControlsProps) {
+function OrderControls({h1, p1, label1, h2, p2, th1, th2, th3, th4, th5, td1, p3, op1, op2, op3, op4, op5, span1}: OrderControlsProps) {
   
 
   return (
-    <div className="max-w-7xl mx-auto px-6">
+    <div id="order-controls" className="order-controls max-w-7xl mx-auto px-6">
   <div className="rounded-2xl bg-blue-50 px-8 py-8 shadow-lg border border-blue-300 ">
 
     <div className="mb-6">
@@ -34,7 +35,7 @@ function OrderControls({h1, p1, label1, h2, p2, th1, th2, th3, th4, th5, td1, p3
 
       <div className="flex flex-col md:flex-row gap-4 flex-1 ">
 
-        <select className=" outline-none border border-slate-300 rounded-xl px-4 py-4 w-full md:w-72 focus:border-blue-500 ">
+        <select id="status-filter" name="status" className="status-filter outline-none border border-slate-300 rounded-xl px-4 py-4 w-full md:w-72 focus:border-blue-500 ">
           <option value="All Statuses">{op1}</option>
           <option value="Pending">{op2}</option>
           <option value="Shipped">{op3}</option>
@@ -43,15 +44,15 @@ function OrderControls({h1, p1, label1, h2, p2, th1, th2, th3, th4, th5, td1, p3
           
         </select>
 
-        <input type="text"placeholder="Search by product name..."className="outline-none border border-slate-300 rounded-xl px-4 py-4 flex-1 focus:border-blue-500"/>
+        <input id="search-input" name="search" type="text" placeholder="Search by product name..." className="search-input outline-none border border-slate-300 rounded-xl px-4 py-4 flex-1 focus:border-blue-500"/>
 
       </div>
 
-         <button className="bg-emerald-600 hover:bg-emerald-800 cursor-pointer text-white font-semibold px-8 py-4 rounded-xl transition-all duration-300"> Reset Filters </button>
+         <button id="reset-filters-btn" type="reset" className="reset-filters-btn bg-emerald-600 hover:bg-emerald-800 cursor-pointer text-white font-semibold px-8 py-4 rounded-xl transition-all duration-300"> Reset Filters </button>
       </div>
 
     <div className="mt-6 flex items-center gap-3">
-      <input type="checkbox"className="scale-130 accent-blue-600" />
+      <input  id="out-of-stock-toggle" name="outOfStock" type="checkbox" className="out-of-stock-toggle scale-130 accent-blue-600" />
 
       <label className="text-lg font-semibold text-slate-800"> {label1} </label>
     </div>
@@ -65,18 +66,18 @@ function OrderControls({h1, p1, label1, h2, p2, th1, th2, th3, th4, th5, td1, p3
 
      <div className="overflow-x-auto rounded-2xl border border-slate-200">
 
-      <table className="w-full">
+      <table id="orders-table" className="orders-table w-full">
        <thead>
            <tr className="bg-slate-100 border-b border-slate-200">
-              <th className="text-left px-6 py-4">{th1}</th>
-              <th className="text-left px-6 py-4">{th2}</th>
-              <th className="text-left px-6 py-4">{th3}</th>
-              <th className="text-left px-6 py-4">{th4}</th>
-              <th className="text-left px-6 py-4">{th5}</th>
+              <th id="product-header" className="text-left px-6 py-4">{th1}</th>
+              <th id="price-header" className="text-left px-6 py-4">{th2}</th>
+              <th id="quantity-header" className="text-left px-6 py-4">{th3}</th>
+              <th id="status-header" className="text-left px-6 py-4">{th4}</th>
+              <th id="stock-header" className="text-left px-6 py-4">{th5}</th>
            </tr>
        </thead>
 
-          <tbody className="bg-white">
+          <tbody id="orders-table-body" className="orders-table-body bg-white">
              <tr>
                 <td colSpan={5} className="h-[300px] text-center text-slate-400" > {td1}</td>
              </tr>
@@ -85,7 +86,7 @@ function OrderControls({h1, p1, label1, h2, p2, th1, th2, th3, th4, th5, td1, p3
 
             </div>
               <div className="flex justify-between items-center mt-4 border-t border-slate-200 pt-4">
-                <p className="text-slate-600 font-medium">{p3}<span className="font-bold text-blue-600"></span></p>
+                <p id="total-orders" className="total-orders text-slate-600 font-medium">{p3}<span  id="total-orders-value" className="total-orders-value font-bold text-blue-600">{span1}</span></p>
               </div>
              </div>
 
