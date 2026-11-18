@@ -15,6 +15,12 @@ export default function LoginForm({ onLogin }: LoginFormProps) {
 
     if (!email.trim() || !password) {
       setError("Enter your email and password.");
+
+
+      setTimeout(() => {
+    setError("");
+  }, 2500);
+
       return;
     }
 
@@ -22,6 +28,12 @@ export default function LoginForm({ onLogin }: LoginFormProps) {
     if (!success) {
       setError("Email or password is incorrect.");
       setPassword("");
+
+      setTimeout(() => {
+    setError("");
+  }, 2500);
+
+  return;
     }
   };
 
@@ -33,7 +45,7 @@ export default function LoginForm({ onLogin }: LoginFormProps) {
   >
     {error && (
       <div
-        className="px-3 py-3 text-sm text-red-700 bg-red-100 border border-red-200 rounded-lg"
+        className="px-3 py-3 text-sm text-red-700 bg-red-100 border border-red-200 rounded-lg transition-all duration-300"
         role="alert"
       >
         {error}
@@ -57,7 +69,7 @@ export default function LoginForm({ onLogin }: LoginFormProps) {
         className="
           w-full
           px-4
-          py-3
+          py-2
           border
           border-slate-300
           rounded-lg
@@ -86,7 +98,7 @@ export default function LoginForm({ onLogin }: LoginFormProps) {
         className="
           w-full
           px-4
-          py-3
+          py-2
           border
           border-slate-300
           rounded-lg
@@ -101,7 +113,7 @@ export default function LoginForm({ onLogin }: LoginFormProps) {
     <button
       type="submit"
       className="
-        py-3
+        py-2.5
         bg-emerald-600
         text-white
         font-semibold

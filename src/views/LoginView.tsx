@@ -80,21 +80,21 @@ export default function LoginView({ onLogin }: LoginViewProps) {
     border-slate-200 
   "
         >
-          <div className="flex flex-col items-center">
-          <div className="w-16 h-16 rounded-2xl bg-blue-100 flex items-center justify-center mb-6">
-            <span className="text-3xl flex items-center">🔐</span>
+          <div className="flex flex-col items-center ">
+          <div className="w-14 h-14 rounded-2xl bg-blue-100 flex items-center justify-center mb-6">
+            <span className="text-2xl flex items-center">🔐</span>
           </div>
           
-          <h1 className="text-4xl font-bold text-slate-800">Welcome Back</h1>
+          <h1 className="text-3xl font-bold text-slate-800 mb-3">Welcome Back</h1>
 
-          <p className="mt-2 text-slate-500">
+          <p className=" text-slate-500">
             Sign in to access your sales dashboard.
           </p>
           </div>
 
           <LoginForm onLogin={onLogin} />
 
-          <div className="mt-6 pt-6 border-t border-slate-200">
+          <div className="mt-4 pt-1 border-t border-slate-200">
             <p className="text-center text-sm text-slate-500">
               Secure access to your sales dashboard
             </p>
