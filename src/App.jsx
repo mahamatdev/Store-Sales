@@ -1,14 +1,17 @@
-import DashboardView from './views/DashboardView'
-import './App.css'
+import DashboardView from "./views/DashboardView";
+import "./App.css";
+import { useAuth } from "./hooks/useAuth";
+import LoginView from "./views/LoginView";
 
 function App() {
-  
+  const { isLoggedIn, login } = useAuth();
 
-  return (
-    <div>
-      <DashboardView />
-    </div>
-  )
+
+  if (!isLoggedIn) {
+    return <LoginView onLogin={login} />;
+  }
+
+  return <DashboardView />;
 }
 
-export default App
+export default App;
