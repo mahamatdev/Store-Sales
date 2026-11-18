@@ -3,9 +3,10 @@ type HeaderProps = {
     para?: string;
     btn1?: string;
     btn2?: string;
+    onLogout?: () => void;
 }
 
-function DashboardHeader({title, para, btn1, btn2}: HeaderProps) {
+function DashboardHeader({title, para, btn1, btn2, onLogout,}: HeaderProps) {
   
 
   return (
@@ -19,7 +20,7 @@ function DashboardHeader({title, para, btn1, btn2}: HeaderProps) {
 
     <div className="flex gap-4">
       <button type="button" className="bg-emerald-600 px-6 h-[50px] rounded-xl cursor-pointer text-white font-semibold transition-all duration-300 hover:bg-emerald-800 hover:shadow-lg">{btn1} </button>
-      <button type="button" className="bg-slate-700 px-6 h-[50px] rounded-xl cursor-pointer text-white font-semibold transition-all duration-300 hover:bg-slate-900 hover:shadow-lg"> {btn2} </button>
+      <button type="button" onClick={onLogout} className="bg-slate-700 px-6 h-[50px] rounded-xl cursor-pointer text-white font-semibold transition-all duration-300 hover:bg-slate-900 hover:shadow-lg"> {btn2} </button>
     </div>
 
   </div>
