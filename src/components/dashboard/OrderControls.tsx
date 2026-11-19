@@ -72,18 +72,18 @@ function OrderControls({h1, p1, label1, h2, p2, th1, th2, th3, th4, th5, td1, p3
 
      <div className="overflow-x-auto rounded-2xl border border-slate-200">
 
-      <table id="orders-table" className="orders-table w-full">
+      <table id="orders-table" className="orders-table w-full table-fixed border-collapse">
        <thead>
-           <tr className="bg-slate-100 border-b border-slate-200">
-              <th id="product-header" className="text-left px-6 py-4">{th1}</th>
-              <th id="price-header" className="text-left px-6 py-4">{th2}</th>
-              <th id="quantity-header" className="text-left px-6 py-4">{th3}</th>
-              <th id="status-header" className="text-left px-6 py-4">{th4}</th>
-              <th id="stock-header" className="text-left px-6 py-4">{th5}</th>
-           </tr>
-       </thead>
+  <tr className="bg-slate-100 border-b border-slate-200">
+    <th className="w-[22%] text-left px-6 py-4">Product</th>
+    <th className="w-[15%] text-left px-6 py-4">Price</th>
+    <th className="w-[15%] text-left px-6 py-4">Quantity</th>
+    <th className="w-[13%] text-center px-6 py-4">Status</th>
+    <th className="w-[13%] text-center px-6 py-4">Stock</th>
+  </tr>
+</thead>
 
-          <tbody id="orders-table-body" className="orders-table-body bg-white">
+        <tbody id="orders-table-body" className="orders-table-body bg-white">
   {orders.length === 0 ? (
     <tr>
       <td colSpan={5} className="h-[300px] text-center text-slate-400">
@@ -93,28 +93,58 @@ function OrderControls({h1, p1, label1, h2, p2, th1, th2, th3, th4, th5, td1, p3
   ) : (
     orders.map((order) => (
       <tr key={order.id} className="border-b border-slate-200">
-        
-        <td className="px-6 py-4">
-  <select
-    value={order.status ?? "Pending"}
-    onChange={(event) =>
-      updateOrderStatus(
-        order.id,
-        event.target.value as OrderStatus
-      )
-    }
-    className="border border-slate-300 rounded-lg px-3 py-2"
-  >
-    <option value="Pending">Pending</option>
-    <option value="Shipped">Shipped</option>
-    <option value="Delivered">Delivered</option>
-    <option value="Cancelled">Cancelled</option>
-  </select>
-</td>
+        <td className="w-[22%] px-6 py-4 text-left">
+          {order.product}
+        </td>
+
+        <td className="w-[15%] px-6 py-4 text-left">
+          {order.price}
+        </td>
+
+        <td className="w-[15%] px-6 py-4 text-left">
+          {order.quantity}
+        </td>
+
+        <td className="w-[24%] px-6 py-4 text-center">
+          <select
+            value={order.status ?? "Pending"}
+            onChange={(event) =>
+              updateOrderStatus(
+                order.id,
+                event.target.value as OrderStatus
+              )
+            }
+            className="w-full max-w-[180px] border border-slate-300 rounded-lg px-3 py-2"
+          >
+            <option value="Pending">Pending</option>
+            <option value="Shipped">Shipped</option>
+            <option value="Delivered">Delivered</option>
+            <option value="Cancelled">Cancelled</option>
+          </select>
+        </td>
+
+        <td className="w-[24%] px-6 py-4 text-left">
+          <select
+            value={
+              order.inStock === undefined
+                ? ""
+                : order.inStock ? "true" : "false"
+            }
+            onChange={(event) =>
+              updateStock(order.id, event.target.value === "true")
+            }
+            className="w-full max-w-[180px] border border-slate-300 rounded-lg px-3 py-2"
+          >
+            <option value="">Select stock</option>
+            <option value="true">In Stock</option>
+            <option value="false">Out of Stock</option>
+          </select>
+        </td>
       </tr>
     ))
   )}
-</tbody>
+</tbody>  
+
 
       </table>
 
