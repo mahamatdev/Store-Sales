@@ -1,0 +1,149 @@
+{
+  "orders": [
+    {
+      "id": "1",
+      "product": "Laptop",
+      "price": 1200000,
+      "quantity": 2,
+      "status": "Pending",
+      "inStock": true
+    },
+    {
+      "id": "2",
+      "product": "Monitor",
+      "price": 450000,
+      "quantity": 1,
+      "status": "Delivered",
+      "inStock": false
+    },
+    {
+      "id": "3",
+      "product": "Desk Chair",
+      "price": 180000,
+      "quantity": 4,
+      "status": "Shipped",
+      "inStock": true
+    },
+    {
+      "id": "4",
+      "product": "Keyboard",
+      "price": 50000,
+      "quantity": 5,
+      "status": "Cancelled",
+      "inStock": true
+    },
+    {
+      "id": "5",
+      "product": "Mouse",
+      "price": 30000,
+      "quantity": 8,
+      "status": "Pending",
+      "inStock": true
+    },
+    {
+      "id": "6",
+      "product": "Printer",
+      "price": 350000,
+      "quantity": 1,
+      "status": "Delivered",
+      "inStock": false
+    },
+    {
+      "id": "7",
+      "product": "Projector",
+      "price": 600000,
+      "quantity": 2,
+      "status": "Shipped",
+      "inStock": true
+    },
+    {
+      "id": "8",
+      "product": "Router",
+      "price": 85000,
+      "quantity": 6,
+      "status": "Pending",
+      "inStock": true
+    },
+    {
+      "id": "9",
+      "product": "External Hard Drive",
+      "price": 120000,
+      "quantity": 3,
+      "status": "Delivered",
+      "inStock": true
+    },
+    {
+      "id": "10",
+      "product": "Webcam",
+      "price": 65000,
+      "quantity": 4,
+      "status": "Cancelled",
+      "inStock": false
+    },
+    {
+      "id": "11",
+      "product": "Microphone",
+      "price": 90000,
+      "quantity": 2,
+      "status": "Pending",
+      "inStock": true
+    },
+    {
+      "id": "12",
+      "product": "Scanner",
+      "price": 250000,
+      "quantity": 1,
+      "status": "Shipped",
+      "inStock": true
+    },
+    {
+      "id": "13",
+      "product": "USB Hub",
+      "price": 25000,
+      "quantity": 10,
+      "status": "Delivered",
+      "inStock": true
+    },
+    {
+      "id": "14",
+      "product": "Power Bank",
+      "price": 45000,
+      "quantity": 7,
+      "status": "Pending",
+      "inStock": true
+    },
+    {
+      "id": "15",
+      "product": "Tablet",
+      "price": 500000,
+      "quantity": 2,
+      "status": "Shipped",
+      "inStock": false
+    },
+    {
+      "id": "QwQczberVL8",
+      "product": "Scanner",
+      "price": 2000,
+      "quantity": 3,
+      "status": "Pending",
+      "inStock": true
+    },
+    {
+      "id": "4s3kBfSSuAU",
+      "product": "Remote",
+      "price": 9000,
+      "quantity": 20,
+      "status": "Pending",
+      "inStock": true
+    },
+    {
+      "id": "-V-D7gEUMik",
+      "product": "Watch",
+      "price": 400,
+      "quantity": 1,
+      "status": "Delivered",
+      "inStock": true
+    }
+  ],
+  "$schema": "./node_modules/json-server/schema.json"
+}
