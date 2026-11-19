@@ -1,3 +1,7 @@
+import type { FormEvent } from "react";
+import type { Order } from "../../types/Order";
+
+
 type AddOrderFormProps = {
   h1?: string;
   p1?: string;
@@ -9,11 +13,36 @@ type AddOrderFormProps = {
   p3?: string;
   btn1?: string;
   btn2?: string;
+  onAddOrder: (order: Order) => void;
 }
 
 
 
-function AddOrderForm({h1, p1, label1, label2, label3, p2, p3, h2, btn1, btn2}: AddOrderFormProps) {
+function AddOrderForm({h1, p1, label1, label2, label3, p2, p3, h2, btn1, btn2, onAddOrder}: AddOrderFormProps) {
+const handleSubmit = (event: FormEvent<HTMLFormElement>) => {
+  event.preventDefault();
+
+  const formData = new FormData(event.currentTarget);
+
+  const product = String(formData.get("product") ?? "").trim();
+  const price = Number(formData.get("price"));
+  const quantity = Number(formData.get("quantity"));
+
+  if (!product || price <= 0 || quantity <= 0 || !Number.isInteger(quantity)) {
+    return;
+  }
+
+  onAddOrder({
+    id: Date.now(),
+    product,
+    price,
+    quantity,
+    status: "Pending",
+  });
+
+  event.currentTarget.reset();
+};
+
   return (
     <div id="add-order-section" className="add-order-section max-w-7xl mx-auto px-6 mt-8 mb-8">
       <div className="bg-blue-50 rounded-3xl shadow-lg border  border-blue-300 p-8">
@@ -25,7 +54,7 @@ function AddOrderForm({h1, p1, label1, label2, label3, p2, p3, h2, btn1, btn2}: 
         </div>
 
         
-        <form id="add-order-form" className="add-order-form grid grid-cols-1 md:grid-cols-2 gap-6">
+        <form id="add-order-form" onSubmit={handleSubmit} className="add-order-form grid grid-cols-1 md:grid-cols-2 gap-6">
           
           <div className="flex flex-col">
             <label className="text-slate-700 font-medium mb-2"> {label1} </label>

@@ -1,3 +1,6 @@
+import type { Order, OrderStatus } from "../../types/Order";
+
+
 type OrderControlsProps = {
   h1?: string;
   p1?: string;
@@ -16,10 +19,13 @@ type OrderControlsProps = {
   op3?: string;
   op4?: string;
   op5?: string;
-  span1?: string;
+  span1?: number;
+  orders : Order[];
+  updateOrderStatus: (id: number, status: OrderStatus) => void;
+  updateStock: (id: number, inStock: boolean) => void;
 }
 
-function OrderControls({h1, p1, label1, h2, p2, th1, th2, th3, th4, th5, td1, p3, op1, op2, op3, op4, op5, span1}: OrderControlsProps) {
+function OrderControls({h1, p1, label1, h2, p2, th1, th2, th3, th4, th5, td1, p3, op1, op2, op3, op4, op5, span1, orders,updateOrderStatus,updateStock}: OrderControlsProps) {
   
 
   return (
@@ -78,10 +84,38 @@ function OrderControls({h1, p1, label1, h2, p2, th1, th2, th3, th4, th5, td1, p3
        </thead>
 
           <tbody id="orders-table-body" className="orders-table-body bg-white">
-             <tr>
-                <td colSpan={5} className="h-[300px] text-center text-slate-400" > {td1}</td>
-             </tr>
-          </tbody>
+  {orders.length === 0 ? (
+    <tr>
+      <td colSpan={5} className="h-[300px] text-center text-slate-400">
+        {td1}
+      </td>
+    </tr>
+  ) : (
+    orders.map((order) => (
+      <tr key={order.id} className="border-b border-slate-200">
+        
+        <td className="px-6 py-4">
+  <select
+    value={order.status ?? "Pending"}
+    onChange={(event) =>
+      updateOrderStatus(
+        order.id,
+        event.target.value as OrderStatus
+      )
+    }
+    className="border border-slate-300 rounded-lg px-3 py-2"
+  >
+    <option value="Pending">Pending</option>
+    <option value="Shipped">Shipped</option>
+    <option value="Delivered">Delivered</option>
+    <option value="Cancelled">Cancelled</option>
+  </select>
+</td>
+      </tr>
+    ))
+  )}
+</tbody>
+
       </table>
 
             </div>
