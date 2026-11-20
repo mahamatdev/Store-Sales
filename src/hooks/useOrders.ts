@@ -42,6 +42,49 @@ function useOrders() {
   setOrders((prev) => [...prev, savedOrder]);
 };
 
+const updateOrderStatus = async (
+  id: number,
+  status: string
+) => {
+  await fetch(`http://localhost:3001/orders/${id}`, {
+    method: "PATCH",
+    headers: {
+      "Content-Type": "application/json",
+    },
+    body: JSON.stringify({ status }),
+  });
+
+  setOrders((prev) =>
+    prev.map((order) =>
+      order.id === id
+        ? { ...order, status }
+        : order
+    )
+  );
+};
+
+
+const updateStockStatus = async (
+  id: number,
+  inStock: boolean
+) => {
+  await fetch(`http://localhost:3001/orders/${id}`, {
+    method: "PATCH",
+    headers: {
+      "Content-Type": "application/json",
+    },
+    body: JSON.stringify({ inStock }),
+  });
+
+  setOrders((prev) =>
+    prev.map((order) =>
+      order.id === id
+        ? { ...order, inStock }
+        : order
+    )
+  );
+};
+
 
 const totalRevenue = orders.reduce(
   (sum, order) => sum + order.price * order.quantity,
@@ -65,6 +108,8 @@ const averageOrderValue =
   totalRevenue,
   pendingOrders,
   averageOrderValue,
+  updateOrderStatus,
+  updateStockStatus,
 };
 }
 

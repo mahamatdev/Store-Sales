@@ -23,6 +23,8 @@ function DashboardView({ onLogout }: DashboardViewProps) {
     totalRevenue,
     pendingOrders,
     averageOrderValue,
+    updateOrderStatus,
+    updateStockStatus,
   } = useOrders();
 
   const [statusFilter, setStatusFilter] = useState("All Statuses");
@@ -82,6 +84,10 @@ function DashboardView({ onLogout }: DashboardViewProps) {
         setSearchTerm={setSearchTerm}
         showOutOfStock={showOutOfStock}
         setShowOutOfStock={setShowOutOfStock}
+
+        updateOrderStatus={updateOrderStatus}
+        updateStockStatus={updateStockStatus}
+        
         h1="Filters & Search"
         p1="Refine the order list by status, stock availability, or product name to quickly find the orders you need."
         label1="Show Out-of-Stock Only"

@@ -14,7 +14,7 @@
       "price": 450000,
       "quantity": 1,
       "status": "Delivered",
-      "inStock": false
+      "inStock": true
     },
     {
       "id": "3",
@@ -53,7 +53,7 @@
       "product": "Projector",
       "price": 600000,
       "quantity": 2,
-      "status": "Shipped",
+      "status": "Pending",
       "inStock": true
     },
     {
@@ -121,27 +121,11 @@
       "inStock": false
     },
     {
-      "id": "QwQczberVL8",
+      "id": "giql51aBN1g",
       "product": "Scanner",
       "price": 2000,
       "quantity": 3,
       "status": "Pending",
-      "inStock": true
-    },
-    {
-      "id": "4s3kBfSSuAU",
-      "product": "Remote",
-      "price": 9000,
-      "quantity": 20,
-      "status": "Pending",
-      "inStock": true
-    },
-    {
-      "id": "-V-D7gEUMik",
-      "product": "Watch",
-      "price": 400,
-      "quantity": 1,
-      "status": "Delivered",
       "inStock": true
     }
   ],
