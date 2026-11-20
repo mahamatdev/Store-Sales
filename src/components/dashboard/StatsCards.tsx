@@ -33,11 +33,11 @@ function StatsCards({
           <img className=" w-16 h-16 object-contain" src={label1} alt="" />
           <h2 className="font-bold text-slate-800 text-xl">{title1}</h2>
           <label
-            id="revenue-value"
-            className="revenue-value text-xl font-bold text-green-600"
-          >
-            {label11} ${" "}
-          </label>
+  id="revenue-value"
+  className="revenue-value text-2xl font-bold text-green-600"
+>
+  ${label11?.toLocaleString()}
+</label>
         </div>
 
         <div
@@ -62,12 +62,12 @@ function StatsCards({
           <img className="w-16 h-16 object-contain" src={label3} alt="" />
           <h2 className="font-bold text-slate-800 text-xl">{title3}</h2>
           <label
-            id="average-value"
-            className="average-value text-xl font-bold text-blue-600"
-          >
-            {" "}
-            {label33} ${" "}
-          </label>
+  id="average-value"
+  className="average-value text-2xl font-bold text-blue-600"
+>
+  ${label33?.toLocaleString()}
+</label>
+
         </div>
       </div>
     </div>
