@@ -31,15 +31,9 @@ type OrderControlsProps = {
   showOutOfStock: boolean;
   setShowOutOfStock: React.Dispatch<React.SetStateAction<boolean>>;
 
-  updateOrderStatus: (
-  id: number,
-  status: string
-) => void;
+  updateOrderStatus: (id: number, status: string) => void;
 
-updateStockStatus: (
-  id: number,
-  inStock: boolean
-) => void;
+  updateStockStatus: (id: number, inStock: boolean) => void;
 };
 
 function OrderControls({
@@ -71,7 +65,7 @@ function OrderControls({
   setShowOutOfStock,
 
   updateOrderStatus,
-updateStockStatus,
+  updateStockStatus,
 
   orders,
 }: OrderControlsProps) {
@@ -192,47 +186,47 @@ updateStockStatus,
                       </td>
 
                       <td className="px-6 py-4 text-center">
-  <select
-    value={order.status}
-    onChange={(e) =>
-      updateOrderStatus(order.id, e.target.value)
-    }
-    className={`px-3 py-1 rounded-full text-sm font-medium border-0 cursor-pointer ${
-      order.status === "Pending"
-        ? "bg-yellow-100 text-yellow-700"
-        : order.status === "Delivered"
-        ? "bg-green-100 text-green-700"
-        : order.status === "Shipped"
-        ? "bg-blue-100 text-blue-700"
-        : "bg-red-100 text-red-700"
-    }`}
-  >
-    <option value="Pending">Pending</option>
-    <option value="Shipped">Shipped</option>
-    <option value="Delivered">Delivered</option>
-    <option value="Cancelled">Cancelled</option>
-  </select>
-</td>
+                        <select
+                          value={order.status}
+                          onChange={(e) =>
+                            updateOrderStatus(order.id, e.target.value)
+                          }
+                          className={`px-3 py-1 rounded-full text-sm font-medium border-0 cursor-pointer ${
+                            order.status === "Pending"
+                              ? "bg-yellow-100 text-yellow-700"
+                              : order.status === "Delivered"
+                                ? "bg-green-100 text-green-700"
+                                : order.status === "Shipped"
+                                  ? "bg-blue-100 text-blue-700"
+                                  : "bg-red-100 text-red-700"
+                          }`}
+                        >
+                          <option value="Pending">Pending</option>
+                          <option value="Shipped">Shipped</option>
+                          <option value="Delivered">Delivered</option>
+                          <option value="Cancelled">Cancelled</option>
+                        </select>
+                      </td>
 
                       <td className="px-6 py-4 text-center">
-  <select
-    value={String(order.inStock)}
-    onChange={(e) =>
-      updateStockStatus(
-        order.id,
-        e.target.value === "true"
-      )
-    }
-    className={`px-3 py-1 rounded-full text-sm font-medium border-0 cursor-pointer ${
-      order.inStock
-        ? "bg-green-100 text-green-700"
-        : "bg-red-100 text-red-700"
-    }`}
-  >
-    <option value="true">In Stock</option>
-    <option value="false">Out Of Stock</option>
-  </select>
-</td>
+                        <select
+                          value={String(order.inStock)}
+                          onChange={(e) =>
+                            updateStockStatus(
+                              order.id,
+                              e.target.value === "true",
+                            )
+                          }
+                          className={`px-3 py-1 rounded-full text-sm font-medium border-0 cursor-pointer ${
+                            order.inStock
+                              ? "bg-green-100 text-green-700"
+                              : "bg-red-100 text-red-700"
+                          }`}
+                        >
+                          <option value="true">In Stock</option>
+                          <option value="false">Out Of Stock</option>
+                        </select>
+                      </td>
                     </tr>
                   ))
                 ) : (
@@ -241,7 +235,17 @@ updateStockStatus,
                       colSpan={5}
                       className="h-[200px] text-center text-slate-400"
                     >
-                      No orders found
+                      <div className="flex flex-col items-center justify-center gap-2">
+                        <span className="text-5xl">📭</span>
+
+                        <p className="text-lg font-semibold text-slate-600">
+                          No orders found
+                        </p>
+
+                        <p className="text-sm text-slate-500">
+                          Try changing filters or add a new order.
+                        </p>
+                      </div>
                     </td>
                   </tr>
                 )}

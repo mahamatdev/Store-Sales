@@ -19,6 +19,7 @@ function DashboardView({ onLogout }: DashboardViewProps) {
   const {
     orders,
     loading,
+    error,
     addOrder,
     totalRevenue,
     pendingOrders,
@@ -56,6 +57,34 @@ function DashboardView({ onLogout }: DashboardViewProps) {
   const filteredAverageOrderValue =
     filteredOrders.length > 0 ? filteredRevenue / filteredOrders.length : 0;
 
+  if (loading) {
+    return (
+      <div className="flex items-center justify-center h-screen">
+        <div className="text-center">
+          <div className="w-12 h-12 border-4 border-blue-500 border-t-transparent rounded-full animate-spin mx-auto"></div>
+
+          <p className="mt-4 text-slate-600 font-medium">Loading orders...</p>
+        </div>
+      </div>
+    );
+  }
+
+  if (error) {
+    return (
+      <div className="flex items-center justify-center h-screen">
+        <div className="bg-red-50 border border-red-200 rounded-2xl p-8 text-center">
+          <h2 className="text-xl font-bold text-red-600">Connection Error</h2>
+
+          <p className="mt-2 text-slate-600">{error}</p>
+
+          <p className="text-sm text-slate-500 mt-2">
+            Please make sure JSON Server is running.
+          </p>
+        </div>
+      </div>
+    );
+  }
+
   return (
     <div id="dashboard-view" className="dashboard-view">
       <DashboardHeader
@@ -84,10 +113,8 @@ function DashboardView({ onLogout }: DashboardViewProps) {
         setSearchTerm={setSearchTerm}
         showOutOfStock={showOutOfStock}
         setShowOutOfStock={setShowOutOfStock}
-
         updateOrderStatus={updateOrderStatus}
         updateStockStatus={updateStockStatus}
-        
         h1="Filters & Search"
         p1="Refine the order list by status, stock availability, or product name to quickly find the orders you need."
         label1="Show Out-of-Stock Only"

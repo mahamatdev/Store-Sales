@@ -62,7 +62,7 @@ export default function LoginForm({ onLogin }: LoginFormProps) {
         <input
           id="login-email"
           type="email"
-          autoComplete="off"
+          autoComplete="email"
           value={email}
           onChange={(e) => setEmail(e.target.value)}
           className=" w-full px-4 py-2  border border-slate-300 rounded-lg outline-none focus:ring-2 focus:ring-blue-200 focus:border-blue-500 "
