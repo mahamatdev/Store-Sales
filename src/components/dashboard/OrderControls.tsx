@@ -178,7 +178,7 @@ function OrderControls({
                       <td className="px-6 py-4 text-center">{order.product}</td>
 
                       <td className="px-6 py-4 text-center">
-                        {Number(order.price).toLocaleString()} $
+                        ${Number(order.price).toLocaleString()}
                       </td>
 
                       <td className="px-6 py-4  text-center">
